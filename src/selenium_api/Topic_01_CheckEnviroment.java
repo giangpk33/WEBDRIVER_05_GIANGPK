@@ -15,7 +15,7 @@ public class Topic_01_CheckEnviroment {
 
 		@Test
 		public void TC_01_CheckUrlAndTitle() {
-			System.out.println("Check homepage title change");
+			System.out.println("Check homepage tittle");
 			String homePageTitle = driver.getTitle();
 			Assert.assertEquals(homePageTitle, "Guru99 Bank Home Page");
 

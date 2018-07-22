@@ -22,7 +22,7 @@ public class Topic_02_Xpath_Css_Locator {
 		driver.manage().window().maximize();
 	}
 
-	/*@Test
+	@Test
 	public void TC_02_LoginEmpty() {
 		driver.get("http://live.guru99.com/");
 		
@@ -58,7 +58,7 @@ public class Topic_02_Xpath_Css_Locator {
 		String passwordInvalidMessage = driver.findElement(By.id("advice-validate-password-pass")).getText();
 
 		Assert.assertEquals(passwordInvalidMessage, "Please enter 6 or more characters without leading or trailing spaces.");
-	}*/
+	}
 	
 	@Test
 	public void TC_05_CreateAnAccount() {

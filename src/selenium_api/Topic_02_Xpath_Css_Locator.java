@@ -21,6 +21,34 @@ public class Topic_02_Xpath_Css_Locator {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 	}
+	
+	@Test
+	public void TC_01_CheckNavigatePage() {
+		driver.get("http://live.guru99.com/");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		String homePageTitle = driver.getTitle();
+		Assert.assertEquals(homePageTitle, "Home page");
+		
+		driver.findElement(By.xpath("//div[@class='footer']//a[@title='My Account']")).click();
+		driver.findElement(By.xpath("//a[@title='Create an Account'")).click();
+		
+		driver.navigate().back();
+		//Về lại trang login thành công
+		Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login-form']")).isDisplayed());
+		
+		String loginUrl = driver.getCurrentUrl();
+		Assert.assertEquals(loginUrl,"http://live.guru99.com/index.php/customer/account/login/" );
+		
+		driver.navigate().forward();
+		
+		//Về lại page register thành công
+		Assert.assertTrue(driver.findElement(By.xpath("//form[@id='form-validate']")).isDisplayed());
+		
+		String registerUrl = driver.getCurrentUrl();
+		Assert.assertEquals(registerUrl,"http://live.guru99.com/index.php/customer/account/create/" );
+	}
+
 
 	@Test
 	public void TC_02_LoginEmpty() {

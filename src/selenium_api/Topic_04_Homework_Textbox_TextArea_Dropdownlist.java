@@ -173,7 +173,7 @@ public class Topic_04_Homework_Textbox_TextArea_Dropdownlist {
 	}
 	
 	 public void TC04_HandleCustomDropdownList() throws InterruptedException{
-		 
+		 //jquery
 		 driver.get("http://jqueryui.com/resources/demos/selectmenu/default.html");
 		 selectCustomDropdownList("//span[@id='speed-button']", "//ul[@id='speed-menu']//li[@class='ui-menu-item']/div", "Fast");
 		 Assert.assertTrue(driver.findElement(By.xpath("//span[@id='speed-button']//span[@class='ui-selectmenu-text' and text()='Fast']")).isDisplayed());
@@ -181,15 +181,29 @@ public class Topic_04_Homework_Textbox_TextArea_Dropdownlist {
 		 selectCustomDropdownList("//span[@id='number-button']", "//ul[@id='number-menu']//li[@class='ui-menu-item']//div", "19");
 		 Assert.assertTrue(driver.findElement(By.xpath("//span[@id='number-button']//span[@class='ui-selectmenu-text' and text()='19']")).isDisplayed());
 		 
+		 //angular
 		 driver.get("https://material.angular.io/components/select/examples");
 		 selectCustomDropdownList("//span[@class='mat-select-placeholder ng-tns-c21-4 ng-star-inserted']", "//mat-option//span", "Pizza");
 		 Assert.assertTrue(driver.findElement(By.xpath("//div[@class='mat-select-value']//span[text()='Pizza']")).isDisplayed());
 		 
 		 driver.get("https://material.angular.io/components/select/examples");
 		 selectCustomDropdownList("//mat-select[@placeholder='Panel color']", "//mat-option/span", "Green");
-		 //Assert.assertTrue(driver.findElement(By.xpath("//div[@class='mat-select-value']//span[text()='Green']")).isDisplayed());
+		 Assert.assertTrue(driver.findElement(By.xpath("//div[@class='mat-select-value']//span[text()='Green']")).isDisplayed());
 		 
+		 //kendo
+		 driver.get("https://demos.telerik.com/kendo-ui/dropdownlist/index");
+		selectCustomDropdownList("//span[@aria-owns='color_listbox']", "//ul[@id='color_listbox']//li", "Grey");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@aria-owns='color_listbox']//span[text()='Grey']")).isDisplayed());
+	
+		selectCustomDropdownList("//span[@aria-owns='size_listbox']", "//ul[@id='size_listbox']/li", "XL - 7 5/8\"");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@aria-owns='size_listbox']//span[@class='k-input' and text()='XL - 7 5/8\"']")).isDisplayed());
 		 
+		//VueJS 
+		driver.get("https://mikerodham.github.io/vue-dropdowns/");
+		selectCustomDropdownList("//div[@class='btn-group']", "//ul[@class='dropdown-menu']//li", "Third Option");
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='btn-group']//li[@class='dropdown-toggle' and contains(text(),'Third Option')]")).isDisplayed());
+		
+		
 	 }
 
 	public void selectCustomDropdownList(String dropdown, String listitem, String valueitem)

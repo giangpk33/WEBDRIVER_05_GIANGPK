@@ -171,6 +171,26 @@ public class Topic_04_Homework_Textbox_TextArea_Dropdownlist {
 
 		selectCustomDropdownList("//span[@id='number-button']", "//ul[@id='number-menu']//div", "19");
 	}
+	
+	 public void TC04_HandleCustomDropdownList() throws InterruptedException{
+		 
+		 driver.get("http://jqueryui.com/resources/demos/selectmenu/default.html");
+		 selectCustomDropdownList("//span[@id='speed-button']", "//ul[@id='speed-menu']//li[@class='ui-menu-item']/div", "Fast");
+		 Assert.assertTrue(driver.findElement(By.xpath("//span[@id='speed-button']//span[@class='ui-selectmenu-text' and text()='Fast']")).isDisplayed());
+		 
+		 selectCustomDropdownList("//span[@id='number-button']", "//ul[@id='number-menu']//li[@class='ui-menu-item']//div", "19");
+		 Assert.assertTrue(driver.findElement(By.xpath("//span[@id='number-button']//span[@class='ui-selectmenu-text' and text()='19']")).isDisplayed());
+		 
+		 driver.get("https://material.angular.io/components/select/examples");
+		 selectCustomDropdownList("//span[@class='mat-select-placeholder ng-tns-c21-4 ng-star-inserted']", "//mat-option//span", "Pizza");
+		 Assert.assertTrue(driver.findElement(By.xpath("//div[@class='mat-select-value']//span[text()='Pizza']")).isDisplayed());
+		 
+		 driver.get("https://material.angular.io/components/select/examples");
+		 selectCustomDropdownList("//mat-select[@placeholder='Panel color']", "//mat-option/span", "Green");
+		 //Assert.assertTrue(driver.findElement(By.xpath("//div[@class='mat-select-value']//span[text()='Green']")).isDisplayed());
+		 
+		 
+	 }
 
 	public void selectCustomDropdownList(String dropdown, String listitem, String valueitem)
 			throws InterruptedException {
@@ -179,9 +199,11 @@ public class Topic_04_Homework_Textbox_TextArea_Dropdownlist {
 		WebElement element = driver.findElement(By.xpath(dropdown));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		element.click();
-
+		Thread.sleep(3000);
+		//driver.findElement(By.xpath(dropdown)).click();
 		// Lấy tất cả các phần tử trong dropdown vào 1 list
 		List<WebElement> allitem = driver.findElements(By.xpath(listitem));
+		
 		wait.until(ExpectedConditions.visibilityOfAllElements(allitem));
 		for (WebElement item : allitem) {
 			if (item.getText().equals(valueitem)) {

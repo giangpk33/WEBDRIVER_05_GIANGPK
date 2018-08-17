@@ -108,9 +108,9 @@ public class Topic_06_HandleButton_RadioButton_CheckBox_Alert {
 			Alert alert = driver.switchTo().alert();
 			Assert.assertEquals(alert.getText(), "I am a JS prompt");
 			
-			alert.sendKeys("Dung Vu");
+			alert.sendKeys("Autotest");
 			alert.accept();
-			Assert.assertEquals(driver.findElement(By.xpath("//p[@id='result']")).getText(), "You entered: Dung Vu");
+			Assert.assertEquals(driver.findElement(By.xpath("//p[@id='result']")).getText(), "You entered: Autotest");
 		}
 		
 		

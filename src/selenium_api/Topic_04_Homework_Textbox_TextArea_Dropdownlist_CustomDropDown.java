@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 
 import com.sun.org.apache.xerces.internal.impl.dv.dtd.NMTOKENDatatypeValidator;
 
-public class Topic_04_Homework_Textbox_TextArea_Dropdownlist {
+public class Topic_04_Homework_Textbox_TextArea_Dropdownlist_CustomDropDown {
 	WebDriver driver;
 	WebDriverWait wait;
 

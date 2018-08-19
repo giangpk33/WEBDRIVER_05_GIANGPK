@@ -191,21 +191,21 @@ public class Topic_08_IFrame {
 	//Dong tat cac ca cua so lai
 	public boolean closeAllWindow(String ParrentWindow) {
 		//Get tat cac cac window
-		Set<String> allWindow = driver.getWindowHandles();
-		//Su dung vong lap duyet qua tat cac cac window
-		for(String runWindow : allWindow) {
-			if(!runWindow.equals(ParrentWindow)) {
-				driver.switchTo().window(runWindow);
-				driver.close();
-			}
-		}
-		driver.switchTo().window(ParrentWindow);
-		if(driver.getWindowHandles().size()==1) {
-			return true;
-		}
-		else {
-			return false;
-		}
+				Set<String> allWindow = driver.getWindowHandles();
+				//Su dung vong lap duyet qua tat cac cac window
+				for(String runWindow : allWindow) {
+					if(!runWindow.equals(ParrentWindow)) {
+						driver.switchTo().window(runWindow);
+						driver.close();
+					}
+				}
+				driver.switchTo().window(ParrentWindow);
+				if(driver.getWindowHandles().size()==1) {
+					return true;
+				}
+				else {
+					return false;
+				}
 	}
 	
 	// Switch 2 window only
